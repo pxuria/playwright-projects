@@ -15,7 +15,8 @@ test("google first test", async ({ browser }) => {
 // season 4
 test.only("rahulshettyacademy first test", async ({ page }) => {
   const userName = page.locator("#username");
-  const signinBtn = page.locator("#signInBtn")
+  const signinBtn = page.locator("#signInBtn");
+  const cardTitles = page.locator(".card-body .card-title a")
 
   await page.goto("https://rahulshettyacademy.com/loginpagePractise")
   console.log(await page.title());
@@ -39,6 +40,9 @@ test.only("rahulshettyacademy first test", async ({ page }) => {
   await signinBtn.click();
 
   // both of them are same
-  console.log(await page.locator(".card-body .card-title a").first().textContent());
-  console.log(await page.locator(".card-body .card-title a").nth(0).textContent());
+  // console.log(await cardTitles.first().textContent());
+  // console.log(await cardTitles.nth(0).textContent());
+
+  const allTitles = await cardTitles.allTextContents()
+  console.log(allTitles)
 })
