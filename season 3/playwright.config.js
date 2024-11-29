@@ -8,11 +8,11 @@ module.exports = defineConfig({
   timeout: 30 * 1000,
   expect: {
     // maximum time for expect
-    timeout: 7000
+    timeout: 5000
   },
   use: {
     browserName: "chromium",
-    headless: true
+    headless: false
   },
 });
 
