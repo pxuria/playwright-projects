@@ -2,7 +2,9 @@
   "name": "playwright",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "npx playwright test tests/clientApp.spec.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

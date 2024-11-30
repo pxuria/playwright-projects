@@ -41,7 +41,7 @@ test.only("rahulshettyacademy first test", async ({ page }) => {
 
   // both of them are same
   // console.log(await cardTitles.first().textContent());
-  // console.log(await cardTitles.nth(0).textContent());
+  console.log(await cardTitles.nth(0).textContent());
 
   const allTitles = await cardTitles.allTextContents()
   console.log(allTitles)
