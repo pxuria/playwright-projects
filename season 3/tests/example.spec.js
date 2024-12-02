@@ -13,7 +13,7 @@ test("google first test", async ({ browser }) => {
 
 
 // season 4
-test.only("rahulshettyacademy first test", async ({ page }) => {
+test("rahulshettyacademy first test", async ({ page }) => {
   const userName = page.locator("#username");
   const signinBtn = page.locator("#signInBtn");
   const cardTitles = page.locator(".card-body .card-title a")
@@ -45,4 +45,32 @@ test.only("rahulshettyacademy first test", async ({ page }) => {
 
   const allTitles = await cardTitles.allTextContents()
   console.log(allTitles)
+})
+
+// season 4
+test.only("UI controls", async ({ page }) => {
+  const userName = page.locator("#username");
+  const signinBtn = page.locator("#signInBtn");
+  const dropdown = page.locator("select.form-control")
+  // const cardTitles = page.locator(".card-body .card-title a")
+
+  await page.goto("https://rahulshettyacademy.com/loginpagePractise")
+
+  // selects an option of a select
+  await dropdown.selectOption("consult")
+  await page.locator(".radiotextsty").last().click();
+  await page.locator("#okayBtn").click()
+
+  // test the radio is checked or not
+  await expect(page.locator(".radiotextsty").last()).toBeChecked();
+  // OR
+  await page.locator(".radiotextsty").last().isChecked();
+
+  await page.locator("#terms").click();
+  await expect(page.locator("#terms")).toBeChecked();
+  await page.locator("#terms").uncheck();
+  expect(await page.locator("#terms").isChecked()).toBeFalsy();
+
+  // pauses the browser page
+  // await page.pause()
 })
